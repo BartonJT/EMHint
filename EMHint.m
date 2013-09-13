@@ -37,6 +37,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                      } 
                      completion:^(BOOL finished){
                          [_modalView removeFromSuperview];
+                         [_modalView release];
                          _modalView = nil;
                          if ([self.hintDelegate respondsToSelector:@selector(hintStateDidClose:)])
                          {
@@ -59,6 +60,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 -(void)clear
 {
     [_modalView removeFromSuperview];
+    [_modalView release];
     _modalView = nil;
 }
 -(UIView*)modalView
