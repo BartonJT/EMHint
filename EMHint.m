@@ -33,12 +33,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     
     [UIView animateWithDuration:0.6 delay:0.0 options:UIViewAnimationOptionCurveEaseOut 
                      animations:^(){
-                         [_modalView setAlpha:0.0];
+                         [self->_modalView setAlpha:0.0];
                      } 
                      completion:^(BOOL finished){
-                         [_modalView removeFromSuperview];
-                         [_modalView release];
-                         _modalView = nil;
+                         [self->_modalView removeFromSuperview];
+                         self->_modalView = nil;
                          if ([self.hintDelegate respondsToSelector:@selector(hintStateDidClose:)])
                          {
                              [self.hintDelegate hintStateDidClose:self];
@@ -52,7 +51,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 {
     UITapGestureRecognizer *tap = tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(_onTap:)];
     [_modalView addGestureRecognizer:tap]; 
-    [tap release];
 }
 
 #pragma mark ---------------------------------->> 
@@ -60,7 +58,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 -(void)clear
 {
     [_modalView removeFromSuperview];
-    [_modalView release];
     _modalView = nil;
 }
 -(UIView*)modalView
@@ -121,7 +118,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 		[label setLineBreakMode:NSLineBreakByWordWrapping];
 		[label setTextAlignment:NSTextAlignmentCenter];
         [_modalView addSubview:label];
-        [label release];
     }
     
     if ([[self hintDelegate] respondsToSelector:@selector(hintStateHasDefaultTapGestureRecognizer:)]) {
@@ -138,8 +134,4 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 }
 #pragma mark ---------------------------------->> 
 #pragma mark -------------->>cleanup
-- (void)dealloc {
-    [_modalView release];
-    [super dealloc];
-}
 @end

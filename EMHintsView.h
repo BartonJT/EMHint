@@ -23,7 +23,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     NSMutableArray* _radiusArray;
 }
 
-- (id)initWithFrame:(CGRect)frame;
-- (id)initWithFrame:(CGRect)frame forViews:(NSArray*)viewArray;
-- (id)initWithFrame:(CGRect)frame withRects:(NSArray*)rectArray;
+- (instancetype) initWithFrame:(CGRect)frame;
+- (instancetype) initWithFrame:(CGRect)frame forViews:(NSArray*)viewArray;
+- (instancetype) initWithFrame:(CGRect)frame withRects:(NSArray*)rectArray;
 @end

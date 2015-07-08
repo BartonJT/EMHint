@@ -24,7 +24,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 #pragma mark - Initialisation Functions -
 
-- (id)initWithFrame:(CGRect)frame
+- (instancetype) initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
     if (self) {
@@ -38,7 +38,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     return self;
 }
 
-- (id)initWithFrame:(CGRect)frame withRects:(NSArray *)rectArray
+- (instancetype) initWithFrame:(CGRect)frame withRects:(NSArray *)rectArray
 {
     self = [super initWithFrame:frame];
     if (self) {
@@ -58,7 +58,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     return self;
 }
 
-- (id)initWithFrame:(CGRect)frame forViews:(NSArray *)viewArray
+- (instancetype) initWithFrame:(CGRect)frame forViews:(NSArray *)viewArray
 {
     self = [super initWithFrame:frame];
     if (self) {
@@ -78,15 +78,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
         [self setBackgroundColor:[UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:BACKGROUND_ALPHA]];
     }
     return self;
-}
-
-
-- (void) dealloc
-{
-    [_positionArray release];
-    [_radiusArray   release];
-    
-    [super dealloc];
 }
 
 
