@@ -143,7 +143,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
                                         CGImageGetBitsPerComponent(maskImage), 
                                         CGImageGetBitsPerPixel(maskImage), 
                                         CGImageGetBytesPerRow(maskImage), 
-                                        CGImageGetDataProvider(maskImage), NULL, FALSE);
+                                        CGImageGetDataProvider(maskImage), NULL, NO);
     
     
     //mask the background image
