@@ -98,11 +98,15 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
     {
         //label
         UIFont *ft = [UIFont fontWithName:@"Helvetica" size:17.0];
-        CGSize sz = [message sizeWithFont:ft constrainedToSize:CGSizeMake(250, 1000)];
-        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(floorf(presentationPlace.center.x - sz.width/2),
-                                                                   floorf(presentationPlace.center.y - sz.height/2),
-                                                                   floorf(sz.width),
-                                                                   floorf(sz.height +10
+		NSDictionary *attributes = [[NSDictionary alloc] initWithObjectsAndKeys:ft, NSFontAttributeName, nil];
+		CGRect rect = [message boundingRectWithSize:CGSizeMake(250, 1000)
+											options:(NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading)
+										 attributes:attributes
+											context:nil];
+        UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(floorf(presentationPlace.center.x - rect.size.width/2),
+                                                                   floorf(presentationPlace.center.y - rect.size.height/2),
+                                                                   floorf(rect.size.width),
+                                                                   floorf(rect.size.height +10
                                                                           ))];
         
         [label setAutoresizingMask:(UIViewAutoresizingFlexibleTopMargin
